@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <title>Direction GoogleMaps</title>
+  <head>
+    <style>
+      #map {
+        height: 500px;
+        width: 100%;
+      }
+  .city {
+  background-color: lightgray;
+  color: black;
+  margin: 25px;
+  padding: 25px;
+}
+    </style>
+  </head>
+
+  <body>
+<div class="city">
+    <h3>UAS GIS II</h3>
+    <h3>Muhammad Tazqir 20200302026</h3>
+  </div>
+
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var RumahSaya = {
+          lat: -0.924408,
+          lng: 119.843504,
+        };
+        var waypoint1 = { lat: -0.924337, lng: 119.842995 };
+        var waypoint2 = { lat: -0.924209, lng: 119.842745 };
+        var waypoint3 = { lat: -0.922593, lng: 119.843971 };
+        var waypoint4 = { lat: -0.921743, lng: 119.844190 };
+        var waypoint5 = { lat: -0.921254, lng: 119.839008 };
+        var waypoint6 = { lat: -0.920719, lng: 119.837816 };
+        var waypoint7 = { lat: -0.919756, lng: 119.836108 };
+        var waypoint8 = { lat: -0.919432, lng: 119.836013 };
+        var waypoint9 = { lat: -0.919529, lng: 119.835374 };
+        var waypoint10 = { lat: -0.919197, lng: 119.834772 };
+        var waypoint11 = { lat: -0.918922, lng: 119.8344948 };
+        var HuntapDuyu = { lat: -0.918922, lng: 119.8344948 };
+
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: RumahSaya,
+        });
+        var marker1 = new google.maps.Marker({
+          position: RumahSaya,
+          map: map
+        });
+        var marker2 = new google.maps.Marker({ position: HuntapDuyu, map: map });
+
+        var polyline = new google.maps.Polyline({
+          path: [
+            RumahSaya,
+            waypoint1,
+            waypoint2,
+            waypoint3,
+            waypoint4,
+            waypoint5,
+            waypoint6,
+            waypoint7,
+            waypoint8,
+            waypoint9,
+            waypoint10,
+            waypoint11,
+            HuntapDuyu,
+          ],
+          strokeColor: "Red",
+          strokeOpacity: 5,
+          strokeWeight: 3.5,
+        });
+
+        polyline.setMap(map);
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh8nyTRtu21vDzdR0tfkST6kfDdWApSkU&callback=initMap"
+    ></script>
+  </body>
+</html>
